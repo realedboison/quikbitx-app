@@ -1,13 +1,17 @@
 import React, {
   useCallback,
+  useContext,
   useEffect,
   useMemo,
   useState,
 } from 'react';
 
 import Card from '../components/Card';
+import { CardContext } from '../contexts/CardContext';
 import Navigation from '../components/Navigation';
 import { data } from '../data';
+
+// IMPORT PRODUCT CONTEXT
 
 // import Search from '../components/Search';
 
@@ -37,6 +41,10 @@ function includesSearchTerm(item, search) {
 }
 
 function Homepage() {
+  // GET CARDS FROM CARD CONTEXT
+  const { cards } = useContext(CardContext);
+  console.log(cards);
+
   const [search, setSearch] = useState('');
   const [debouncedSearch, setDebouncedSearch] =
     useState('');
@@ -65,6 +73,7 @@ function Homepage() {
       ),
     [search]
   );
+  console.log(filteredData);
 
   return (
     <div className='main__wrapper'>

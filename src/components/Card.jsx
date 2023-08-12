@@ -20,6 +20,7 @@ function Card({ item }) {
               <Link
                 key={item.id}
                 to={`/categories/${item.categories[0]}`}>
+                {/* LINK */}
                 <span className='uppercase text-green-500 bg-yellow-400 mr-2'>
                   add to favbits
                   {item.isFavorite ? '❤' : '🤍'}
@@ -42,6 +43,7 @@ function Card({ item }) {
                   <Link
                     key={item.id}
                     to={`/categories/${category}`}>
+                    {/* LINK */}
                     <span className='text-red-400 ml-6 bg-yellow-400'>
                       add to favbits
                       <span
