@@ -1,6 +1,13 @@
+import { CardContext } from '../contexts/CardContext';
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
 
-function Card({ item }) {
+const Card = ({ item }) => {
+  const { addToFavorite } =
+    useContext(CardContext);
+
+  console.log({ addToFavorite });
+
   return (
     <div className='p-10 bg-yellow-200'>
       {/* CARD */}
@@ -16,14 +23,17 @@ function Card({ item }) {
             <div className='uppercase'>
               {item.categories[0]}
             </div>
+            {/* console.log(item.category) */}
             <div>
               <Link
                 key={item.id}
-                to={`/categories/${item.categories[0]}`}>
+                to='/'
+                onClick={() =>
+                  addToFavorite(item, item.id)
+                }>
                 {/* LINK */}
                 <span className='uppercase text-green-500 bg-yellow-400 mr-2'>
-                  add to favbits
-                  {item.isFavorite ? '❤' : '🤍'}
+                  add to favorite
                 </span>
               </Link>
             </div>
@@ -42,19 +52,23 @@ function Card({ item }) {
                   {category}
                   <Link
                     key={item.id}
-                    to={`/categories/${category}`}>
+                    to='/'
+                    onClick={() =>
+                      addToFavorite(item, item.id)
+                    }>
                     {/* LINK */}
                     <span className='text-red-400 ml-6 bg-yellow-400'>
-                      add to favbits
+                      add to favorite
                       <span
-                        className={` text-${
-                          item.isFavorite
-                            ? 'red'
-                            : 'black'
-                        }`}>
-                        {item.isFavorite
+                      //  className={` text-${
+                      // item.isFavorite
+                      // ? 'red'
+                      // : 'black'
+                      // }`}
+                      >
+                        {/* {item.isFavorite
                           ? '❤'
-                          : '🤍'}
+                          : '🤍'} */}
                       </span>
                     </span>
                   </Link>
@@ -65,6 +79,13 @@ function Card({ item }) {
         )}
     </div>
   );
-}
+};
+
+// export default Card;
+//           </div>
+//         )}
+//     </div>
+//   );
+// };
 
 export default Card;

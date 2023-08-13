@@ -42,8 +42,8 @@ function includesSearchTerm(item, search) {
 
 function Homepage() {
   // GET CARDS FROM CARD CONTEXT
-  const { cards } = useContext(CardContext);
-  console.log(cards);
+  const { card } = useContext(CardContext);
+  console.log(card);
 
   const [search, setSearch] = useState('');
   const [debouncedSearch, setDebouncedSearch] =

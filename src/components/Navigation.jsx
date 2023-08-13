@@ -3,7 +3,7 @@ import Sidebar from './Sidebar';
 import { SidebarContext } from '../contexts/SidebarContext';
 import { useContext } from 'react';
 
-function Navigation() {
+const Navigation = () => {
   const { isOpen, setIsOpen } = useContext(
     SidebarContext
   );
@@ -13,21 +13,18 @@ function Navigation() {
       <div>
         <Sidebar />
       </div>
-      <div className='  flex justify-between items-center p-2'>
+      <div className='flex justify-between items-center p-3'>
         <h1 className='text-2xl font-extrabold'>
           Quikbitx
         </h1>
         <div
           onClick={() => setIsOpen(!isOpen)}
           className='flex justify-end cursor-pointer relative'>
-          <HiOutlineMenuAlt2
-            className='w-10 h-10 bg-green-200'
-            bg-orange-600
-          />
+          <HiOutlineMenuAlt2 className='w-8 h-8 bg-green-200' />
         </div>
       </div>
     </header>
   );
-}
+};
 
 export default Navigation;

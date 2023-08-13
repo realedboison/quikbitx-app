@@ -4,28 +4,50 @@ import {
   useState,
 } from 'react';
 
-import { data } from '../data';
-
 // CREATE CONTEXT
 export const CardContext = createContext();
 
 const CardProvider = ({ children }) => {
   //PRODUCT STATE
-  const [cards, setCards] = useState([]);
+  const [card, setCard] = useState([]);
 
-  useEffect(() => {
-    // const fetchCards = async () => {
-    //   const response = await fetch('../data.js');
-    //   const data = await response.json();
-    //   console.log(data);
-    // };
-    // fetchCards();
-    setCards(data);
-    console.log(data);
-  }, []);
+  console.log(card);
+
+  const addToFavorite = (item, itemId) => {
+    const newItem = { ...item };
+    // CHECK IF ITEM IS ALREADY IN THE CART
+    const cartItem = card.find((item) => {
+      return item.itemId === itemId;
+    });
+    if (cartItem) {
+      const newCart = [...card].map((item) => {
+        if (item.itemId === itemId) {
+          return { ...(item + 1) };
+        } else {
+          return item;
+        }
+      });
+      setCard(newCart);
+    } else {
+      setCard([...card, newItem]);
+    }
+    // console.log(card);
+    // console.log(itemId);
+
+    // console.log(newItem);
+    // console.log(cartItem);
+    // console.log(
+    //   `${item.categories} added to favorite`
+    // );
+  };
 
   return (
-    <CardContext.Provider value={{ cards }}>
+    // { card }
+    <CardContext.Provider
+      value={{
+        addToFavorite,
+        card,
+      }}>
       {children}
     </CardContext.Provider>
   );

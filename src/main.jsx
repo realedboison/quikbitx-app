@@ -4,6 +4,7 @@ import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 // CARD PROVIDER
 import CardProvider from './contexts/CardContext';
+import FavoriteProvider from './contexts/FavoriteContext';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 // SIDEBAR CONTEXT
@@ -13,12 +14,14 @@ ReactDOM.createRoot(
   document.getElementById('root')
 ).render(
   <SidebarProvider>
-    <CardProvider>
-      <React.StrictMode>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-      </React.StrictMode>
-    </CardProvider>
+    <FavoriteProvider>
+      <CardProvider>
+        <React.StrictMode>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </React.StrictMode>
+      </CardProvider>
+    </FavoriteProvider>
   </SidebarProvider>
 );

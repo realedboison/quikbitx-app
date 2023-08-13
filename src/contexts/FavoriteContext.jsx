@@ -5,9 +5,16 @@ import {
 } from 'react';
 
 // CREATE CONTEXT
+export const FavoriteContext = createContext();
 
-function FavoriteContext() {
-  return <div>FavoriteContext</div>;
-}
+const FavoriteProvider = ({ children }) => {
+  const [favorite, setFavorite] = useState([]);
+  return (
+    <FavoriteContext.Provider
+      value={'this is the favorite context'}>
+      {children}
+    </FavoriteContext.Provider>
+  );
+};
 
-export default FavoriteContext;
+export default FavoriteProvider;
