@@ -13,7 +13,8 @@ const Sidebar = () => {
     SidebarContext
   );
 
-  const { card } = useContext(CardContext);
+  const { card, clearCard, total } =
+    useContext(CardContext);
   // const {} = useContext(CardContext);
   // console.log(useContext(CardContext));
 
@@ -35,7 +36,7 @@ const Sidebar = () => {
             <IoMdArrowUp className='text-2xl' />
           </div>
         </div>
-        <div>
+        <div className=''>
           {card.map((item) => {
             // return <div>{item.description}</div>;
             return (
@@ -46,7 +47,30 @@ const Sidebar = () => {
             );
           })}
           {/*  */}
-          {console.log(card)}
+        </div>
+        <div>
+          <div>
+            <div className=' px-4 pb-4 mt-4 text-white'>
+              <Link
+                to='/'
+                onClick={clearCard}
+                className='cursor-pointer flex justify-between p-2 bg-red-500'>
+                <div>
+                  <span className='mr-2'>
+                    Total Cards =
+                  </span>
+                  {total}
+                </div>
+                <div className='flex items-center gap-x-2'>
+                  <p className='uppercase'>
+                    clear cards
+                  </p>
+                  <div>🚮</div>
+                </div>
+                {/* logo here */}
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </div>

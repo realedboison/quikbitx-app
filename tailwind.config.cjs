@@ -1,3 +1,5 @@
+import plugin from 'tailwindcss';
+
 export default {
   content: [
     './index.html',
@@ -15,8 +17,11 @@ export default {
     },
   },
   plugins: [
-    // require('tailwindcss'),
-    // require('autoprefixer'),
-    // // ... other plugins
+    plugin(function ({ addVariant }) {
+      addVariant(
+        'not-last:',
+        '&:not(:last-child)'
+      );
+    }),
   ],
 };

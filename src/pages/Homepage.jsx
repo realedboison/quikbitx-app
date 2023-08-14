@@ -76,9 +76,11 @@ function Homepage() {
   console.log(filteredData);
 
   return (
-    <div className='main__wrapper'>
+    <div className='main__wrapper '>
       <Navigation />
-      <div className='main'>playground</div>
+      <div className='main pt-[100px]'>
+        playground
+      </div>
       {/* SEARCH */}
       {/* <Search /> */}
       <div className='p-5 bg-purple-600 mb-10'>
