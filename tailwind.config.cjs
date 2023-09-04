@@ -8,8 +8,14 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#007bff',
-        secondary: '#ff9900',
+        mainbg: '#05050A',
+        secondary: '#E94560',
+        primary: '#444476',
+        bgdarkest: '#10101e',
+        // bgdarker: '#121221',
+        bgdark: '#202038',
+        borderline: '#1A1A2E',
+        lightgray: '#CCCCCC',
       },
       fontFamily: {
         sans: ['Catamaran', 'sans-serif'],

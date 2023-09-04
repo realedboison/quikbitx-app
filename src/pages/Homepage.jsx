@@ -6,8 +6,11 @@ import React, {
   useState,
 } from 'react';
 
+import { BiSearch } from 'react-icons/bi';
 import Card from '../components/Card';
 import { CardContext } from '../contexts/CardContext';
+import { Link } from 'react-router-dom';
+import MainLogo from '../assets/logo/qb-logo-red-full.svg';
 import Navigation from '../components/Navigation';
 import { data } from '../data';
 
@@ -76,26 +79,43 @@ function Homepage() {
   console.log(filteredData);
 
   return (
-    <div className='main__wrapper '>
-      <Navigation />
-      <div className='main pt-[100px]'>
-        playground
-      </div>
-      {/* SEARCH */}
-      {/* <Search /> */}
-      <div className='p-5 bg-purple-600 mb-10'>
-        <input
-          type='search'
-          className='w-full p-2'
-          placeholder='search quotes'
-          onChange={handleSearchChange}
-        />
-      </div>
-      {/* RENDER RESULTS */}
-      <div className='w-full gap-10 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 mb-10'>
-        {filteredData.map((item) => (
-          <Card key={item.id} item={item} />
-        ))}
+    <div className='bg-bgdarkest min-h-screen'>
+      <div className='main__wrapper '>
+        <Navigation />
+        <div className='bg-bgdark rounded-3xl'>
+          <div className='pt-[110px] pb-[15px] bg-bgdark'>
+            <div className='grid place-items-center'>
+              <Link to='/'>
+                <img
+                  src={MainLogo}
+                  alt=''
+                  className='w-[200px]'
+                />
+              </Link>
+            </div>
+          </div>
+          {/* SEARCH */}
+          {/* <Search /> */}
+          <div className='p-5 bg-primary mb-10 rounded-3xl overflow-hidden relative'>
+            <input
+              type='search'
+              className='w-full p-2 rounded-xl custom-placeholder search-input text-white '
+              placeholder='search quotes'
+              onChange={handleSearchChange}
+            />
+            {/* lg:left-[130px] xl:left-[140px] left-[55px] top-[210px] */}
+            <div className=' text-lightgray absolute left-[40px] top-[35px]'>
+              <BiSearch size={20} />
+            </div>
+          </div>
+        </div>
+        {/* RENDER RESULTS */}
+        {/* grid-cols-1 md:grid-cols-1 */}
+        <div className='w-full gap-10 grid  lg:grid-cols-2 pb-10'>
+          {filteredData.map((item) => (
+            <Card key={item.id} item={item} />
+          ))}
+        </div>
       </div>
     </div>
   );

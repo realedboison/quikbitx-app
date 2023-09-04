@@ -9,9 +9,26 @@
     @apply p-10 text-6xl font-bold text-center text-white uppercase bg-purple-400;
   }
   .main__wrapper {
-    @apply container w-full max-w-lg mx-auto sm:max-w-xl md:max-w-3xl lg:max-w-5xl xl:max-w-7xl;
+    @apply container w-full max-w-lg mx-auto sm:max-w-xl md:max-w-3xl lg:max-w-7xl xl:max-w-[90%] bg-bgdarkest;
   }
   .full_wrapper {
     @apply container w-full;
+  }
+  .nav__btn--sm {
+    @apply w-[100px] h-[40px] font-bold uppercase hover:text-secondary text-mainbg text-lg bg-lightgray hover:bg-mainbg grid place-items-center rounded-lg hover:ring-secondary hover:ring-offset-1 ring-offset-secondary hover:ring-1 transition-all ease-out duration-300;
+  }
+
+  .nav__btn--md {
+    @apply w-[140px] h-[40px] font-bold uppercase hover:text-secondary text-mainbg text-lg bg-lightgray hover:bg-mainbg grid place-items-center rounded-lg hover:ring-1 hover:ring-secondary hover:ring-offset-1 ring-offset-secondary  transition-all ease-out duration-300;
+  }
+
+  .nav__btn--lg {
+    @apply w-[180px] h-[40px] font-bold uppercase hover:text-secondary text-mainbg text-lg bg-lightgray hover:bg-mainbg grid place-items-center rounded-lg hover:ring-1 hover:ring-secondary hover:ring-offset-1 ring-offset-secondary  transition-all ease-out duration-300;
+  }
+  .custom-placeholder::placeholder {
+    @apply text-lightgray uppercase;
+  }
+  .search-input {
+    @apply w-[100%] p-2  h-[50px] rounded-md border-2 border-primary text-center text-white text-lg bg-mainbg custom-placeholder focus:outline-none focus:ring focus:ring-secondary;
   }
 }

@@ -9,7 +9,7 @@ const Card = ({ item }) => {
   // console.log({  addToFavorite });
 
   return (
-    <div className='p-10 bg-yellow-200 flex flex-col justify-between'>
+    <div className='p-10 bg-bgdark flex flex-col justify-between rounded-3xl text-white'>
       {/* CARD */}
       <div className=' italic'>
         {item.description}
