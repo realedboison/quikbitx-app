@@ -1,6 +1,9 @@
-import React, { useContext } from 'react';
+import React, {
+  useContext,
+  useEffect,
+  useRef,
+} from 'react';
 
-import Card from './Card';
 import { CardContext } from '../contexts/CardContext';
 import CartItem from './CartItem';
 import { FiTrash2 } from 'react-icons/fi';
@@ -13,32 +16,28 @@ const Sidebar = () => {
     SidebarContext
   );
 
-  const { card, clearCard, total } =
+  const { card, clearCard, itemAmount } =
     useContext(CardContext);
-  // const {} = useContext(CardContext);
-  // console.log(useContext(CardContext));
 
-  console.log('SIDEBAR');
   return (
     <div>
       <div
         className={`${
           isOpen ? 'top-0' : '-top-[100%]'
-        }  bg-green-300 bg-opacity-75 h-full fixed shadow-2xl overflow-y-auto  transition-all duration-300 z-20 w-[70vw] xl:max-w-[35vw] md:w-[35vw] lg:w-[35vw] `}>
-        <div className='flex items-center w-full justify-between  bg-green-600 py-3 px-4'>
-          <div className='text-md font-semibold uppercase'>
-            Favorites (0)
+        }  bg-primary bg-opacity-80 h-full fixed shadow-2xl overflow-y-auto  transition-all duration-300 z-20 w-[82vw] xl:max-w-[40vw] md:w-[35vw] lg:w-[40vw] outline-primary outline-1 outline`}>
+        <div className='flex items-center w-full justify-between  bg-bgdarker py-3 px-4 rounded-b-xl'>
+          <div className='text-xl font-semibold uppercase text-lightgray'>
+            Favorites
           </div>
-          {/* ICON */}
+
           <div
             onClick={handleClose}
-            className='cursor-pointer bg-green-300 w-8 h-8 flex justify-center items-center'>
-            <IoMdArrowUp className='text-2xl' />
+            className='cursor-pointer bg-primary w-10 h-10 rounded-md flex justify-center items-center'>
+            <IoMdArrowUp className='text-3xl text-secondary  ' />
           </div>
         </div>
-        <div className=''>
+        <div>
           {card.map((item) => {
-            // return <div>{item.description}</div>;
             return (
               <CartItem
                 item={item}
@@ -54,20 +53,21 @@ const Sidebar = () => {
               <Link
                 to='/'
                 onClick={clearCard}
-                className='cursor-pointer flex justify-between p-2 bg-red-500'>
-                <div>
-                  <span className='mr-2'>
-                    Total Cards =
+                className='cursor-pointer flex justify-between p-2 bg-secondary rounded-lg'>
+                <div className='flex bg-bgdark rounded-md'>
+                  <span className='mx-2 uppercase text-xs lg:text-base '>
+                    Total Cards
                   </span>
-                  {total}
+                  <div className='lg:w-7 lg:h-7 w-4 h-4 bg-lightgray text-black text-center rounded-md font-bold text-xs lg:text-base'>
+                    {itemAmount}
+                  </div>
                 </div>
                 <div className='flex items-center gap-x-2'>
-                  <p className='uppercase'>
+                  <p className='uppercase font-bold text-xs lg:text-base'>
                     clear cards
                   </p>
-                  <div>🚮</div>
+                  <FiTrash2 className='lg:text-md text-sm' />
                 </div>
-                {/* logo here */}
               </Link>
             </div>
           </div>
@@ -76,5 +76,4 @@ const Sidebar = () => {
     </div>
   );
 };
-
 export default Sidebar;

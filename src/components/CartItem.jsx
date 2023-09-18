@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 
 import { CardContext } from '../contexts/CardContext';
+import { FiTrash2 } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 
 // REMOVE ICON IMPORT HERE
@@ -12,13 +13,13 @@ const CartItem = ({ item }) => {
   //   item;
 
   return (
-    <div className='flex mx-4 '>
-      <div className='w-full min-h-[100px] bg-zinc-200 mt-4 p-4   '>
-        <div className='text-md italic'>
+    <div className='flex mx-4  '>
+      <div className='w-full min-h-[100px] rounded-2xl border border-primary bg-bgdark text-white mt-4 p-4   '>
+        <div className='text-base italic'>
           {item.description}
         </div>
 
-        <div className='py-2'>
+        <div className='py-4 font-bold'>
           <Link to={`/card/${item.id}`}>
             {item.author}
           </Link>
@@ -28,7 +29,7 @@ const CartItem = ({ item }) => {
 
         <div className='flex justify-between items-center'>
           <Link to={`/card/${item.id}`}>
-            <div className='uppercase font-bold  '>
+            <div className='uppercase font-bold text-secondary text-sm mt-2'>
               {item.categories.join(', ')}
             </div>
           </Link>
@@ -40,7 +41,7 @@ const CartItem = ({ item }) => {
                 removeFromFavorite(item.id)
               }
               className='ml-2 cursor-pointer'>
-              ✖{/* REMOVE ICON */}
+              <FiTrash2 className='lg:text-lg text-sm text-secondary' />
             </div>
           </div>
         </div>

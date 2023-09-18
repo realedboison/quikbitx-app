@@ -7,7 +7,7 @@ const MobileNavMenu = ({ isOpen }) => {
     // <
     <div
       div
-      className='rounded-[20px] bg-bgdarkest border-[3px] border-borderline flex flex-col items-center justify-center w-[300px] overflow-hidden z-[99] absolute top-[100px] right-[20px]'>
+      className='rounded-[20px] bg-bgdarkest border-[3px] border-borderline flex flex-col items-center justify-center w-[300px] overflow-hidden z-[99] absolute top-[75px] right-[0px]'>
       <Link to='/'>
         <img
           className='w-14 h-14
@@ -22,17 +22,17 @@ const MobileNavMenu = ({ isOpen }) => {
         Home
       </Link>
       <Link
-        to='/book-quotes'
+        to='/'
         className='block py-4 uppercase outline outline-2 outline-bgdark text-white hover:text-secondary hover:bg-bgdark bg-bgdarkest w-full text-center font-semibold '>
         Book Quotes
       </Link>
       <Link
-        to='/masculinity'
+        to='/'
         className='block py-4 uppercase outline outline-2 outline-bgdark text-white hover:text-secondary hover:bg-bgdark bg-bgdarkest w-full text-center font-semibold '>
         Masculinity
       </Link>
       <Link
-        to='/proverbs'
+        to='/'
         className='block py-4 uppercase outline outline-2 outline-bgdark text-white hover:text-secondary hover:bg-bgdark bg-bgdarkest w-full text-center font-semibold '>
         Proverbs
       </Link>

@@ -10,7 +10,7 @@ import { BiSearch } from 'react-icons/bi';
 import Card from '../components/Card';
 import { CardContext } from '../contexts/CardContext';
 import { Link } from 'react-router-dom';
-import MainLogo from '../assets/logo/qb-logo-red-full.svg';
+import MainLogo from '../assets/logo/qb-logo-red-full.png';
 import Navigation from '../components/Navigation';
 import { data } from '../data';
 
@@ -83,20 +83,20 @@ function Homepage() {
       <div className='main__wrapper '>
         <Navigation />
         <div className='bg-bgdark rounded-3xl'>
-          <div className='pt-[110px] pb-[15px] bg-bgdark'>
+          <div className='lg:pt-[110px] lg:pb-[15px] pb-[15px] pt-[90px]  bg-bgdark'>
             <div className='grid place-items-center'>
               <Link to='/'>
                 <img
                   src={MainLogo}
                   alt=''
-                  className='w-[200px]'
+                  className='w-[150px] lg:w-[200px]'
                 />
               </Link>
             </div>
           </div>
           {/* SEARCH */}
           {/* <Search /> */}
-          <div className='p-5 bg-primary mb-10 rounded-3xl overflow-hidden relative'>
+          <div className='p-3 bg-primary mb-6 rounded-3xl overflow-hidden relative'>
             <input
               type='search'
               className='w-full p-2 rounded-xl custom-placeholder search-input text-white '
@@ -104,7 +104,7 @@ function Homepage() {
               onChange={handleSearchChange}
             />
             {/* lg:left-[130px] xl:left-[140px] left-[55px] top-[210px] */}
-            <div className=' text-lightgray absolute left-[40px] top-[35px]'>
+            <div className=' text-lightgray absolute left-[30px] top-[28px]'>
               <BiSearch size={20} />
             </div>
           </div>

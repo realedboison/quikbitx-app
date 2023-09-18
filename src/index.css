@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@100;200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -16,6 +16,10 @@
   }
   .nav__btn--sm {
     @apply w-[100px] h-[40px] font-bold uppercase hover:text-secondary text-mainbg text-lg bg-lightgray hover:bg-mainbg grid place-items-center rounded-lg hover:ring-secondary hover:ring-offset-1 ring-offset-secondary hover:ring-1 transition-all ease-out duration-300;
+  }
+
+  .border-line {
+    @apply border-primary border-solid border-[1px];
   }
 
   .nav__btn--md {
